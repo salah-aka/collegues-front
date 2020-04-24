@@ -1,17 +1,32 @@
-{{col | json }}
-<div class = "container">
-    <div class = "collegue">
-        <div class = "col-3 photo-collegue">
-            img src = "{{col.photoUr1}}" alt =  "photo du collegue"
-        </div>
-        <div class = "col-9">
-            <ul>
-                <Li>Matricule : {{col.matricule}}</Li>
-                <Li>Nom: {{col.nom}}</Li>
-                <Li>Prenoms: {{col.prenoms}}</Li>
-                <Li>Email: {{col.email}}</Li>
-                <Li>Date de naissance: {{col.dateDeNaissance}} </Li>
-            </ul>
-        </div>
-    </div>
+<div class="container">
+  <div class="row">
+      <div class="col-3">
+          <img src={{coll.photoUrl}} class="img-thumbnail" style="width: 220px; height: 200px;">
+      </div>
+      <div class="col-9">
+          <div class="row">
+              Matricule : {{coll.matricule}}
+          </div>
+          <div class="row">
+              Nom : {{coll.nom}}
+          </div>
+          <div class="row">
+              Prénoms : {{coll.prenoms}}
+          </div>
+          <div class="row">
+              Date de naissance : {{coll.dateDeNaissance}}
+          </div>
+          <div class="row">
+              Email : {{coll.email}}
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class=" offset-4 col-4">
+          <a href="">Créer un nouveau collègue</a>
+      </div>
+      <div class=" offset-4 ">
+          <button class="btn btn-primary">Modifier</button>
+      </div>
+  </div>
 </div>
