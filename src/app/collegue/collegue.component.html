@@ -3,30 +3,52 @@
       <div class="col-3">
           <img src={{coll.photoUrl}} class="img-thumbnail" style="width: 220px; height: 200px;" alt="photo de profil">
       </div>
-      <div class="col-9">
+      <div class="col-9 m-auto">
           <div class="row">
-              Matricule : {{coll.matricule}}
+            <div class="col">Matricule :</div>
+            <div class="col">{{coll.matricule}} </div>
           </div>
           <div class="row">
-              Nom : {{coll.nom}}
+            <div class="col">Nom :</div>
+            <div class="col">{{coll.nom}}</div>
           </div>
           <div class="row">
-              Prénoms : {{coll.prenoms}}
+            <div class="col">Prenoms :</div>
+            <div class="col">{{coll.prenoms}}</div>
           </div>
           <div class="row">
-              Date de naissance : {{coll.dateDeNaissance}}
+              <div class="col">Date de naissance :</div>
+              <div class="col">{{coll.dateDeNaissance}}</div>
           </div>
-          <div class="row">
-              Email : {{coll.email}}
+
+          <div class="row mt-1" [hidden]="!modification">
+            <label class="form-label col-6" for="id_email">Email :</label>
+            <input #newEmail type="email" class="form-control col-5" id="id_email">
+          </div>
+          <div class="row" [hidden]="modification">
+              <div class="col">Email :</div>
+              <div class="col">{{coll.email}}</div>
+          </div>
+
+          <div class="row mt-1" [hidden]="!modification">
+            <label for="id_photoUrl" class="form-label col-6">Photo Url :</label>
+            <input #newPhoto type="text" class="form-control col-5" id="id_email" >
           </div>
       </div>
   </div>
-  <div class="row">
+
+  <div class="row mt-2">
       <div class=" offset-4 col-4">
-        <a  class="btn btn-primary" (click)="nouveauCollegue()" >Créer un nouveau collègue </a>
+        <button (click)="nouveauCollegue()" class="btn btn-link">Créer un nouveau collègue</button>
       </div>
+
       <div class="col-4">
-          <button class="btn btn-primary" (click)="modifierCollegue()">Modifier</button>
+          <ng-container *ngIf="modification; else elseBlock">
+            <button class="btn btn-link" (click)="valider(newEmail.value,newPhoto.value)">Valider</button>
+          </ng-container>
+          <ng-template #elseBlock>
+            <button class="btn btn-link" (click)="modifier()">Modifier</button>
+          </ng-template>
       </div>
-  </div>
+   </div>
 </div>

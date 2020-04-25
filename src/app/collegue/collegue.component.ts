@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Collegue } from 'src/app/models/Collegue';
+import { Collegue } from '../models/Collegue';
 
 
 @Component({
@@ -10,15 +10,24 @@ import { Collegue } from 'src/app/models/Collegue';
 export class CollegueComponent implements OnInit {
 
   @Input() coll: Collegue;
-
+  modification = false;
   constructor() { }
-
-  modifierCollegue(){
-    console.log('Modification du collègue');
-  }
 
   nouveauCollegue(){
     console.log('Création d’un nouveau collègue');
+  }
+
+  modifier(){
+    console.log('Modification du collègue');
+    this.modification = true;
+  }
+
+  valider(newEmail, newPhoto){
+    this.modification = false;
+    this.coll.email = newEmail;
+    if (newPhoto.length > 0){
+    this.coll.photoUrl = newPhoto;
+    }
   }
 
   ngOnInit(): void {
