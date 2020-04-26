@@ -1,5 +1,8 @@
 <header></header>
-<main class="container">
-  <app-collegue [coll]="collegueEx1"></app-collegue>
+<main class="container-fluid">
+  <div class="row">
+    <h1 class="col-12 display-8 text-center border rounded ">Administration Collegue</h1>
+    <app-recherche-collegue-par-nom class="col-12 col-md-5"></app-recherche-collegue-par-nom>
+    <app-collegue [coll]="collegueEx1" class="col-12 col-md-7"></app-collegue>
+  </div>
 </main>
-

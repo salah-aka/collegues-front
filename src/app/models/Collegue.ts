@@ -5,7 +5,7 @@ export class Collegue {
         public nom: string,
         public prenoms: string,
         public email: string,
-        public dateDeNaissance: string,
+        public dateDeNaissance: Date,
         public photoUrl: string
         ){
     }

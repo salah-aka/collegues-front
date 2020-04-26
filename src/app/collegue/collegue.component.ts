@@ -18,7 +18,6 @@ export class CollegueComponent implements OnInit {
   }
 
   modifier(){
-    console.log('Modification du collègue');
     this.modification = true;
   }
 

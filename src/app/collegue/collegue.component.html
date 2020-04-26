@@ -10,7 +10,7 @@
           </div>
           <div class="row">
             <div class="col">Nom :</div>
-            <div class="col">{{coll.nom}}</div>
+            <div class="col"> {{coll.nom | uppercase}}</div>
           </div>
           <div class="row">
             <div class="col">Prenoms :</div>
@@ -18,7 +18,7 @@
           </div>
           <div class="row">
               <div class="col">Date de naissance :</div>
-              <div class="col">{{coll.dateDeNaissance}}</div>
+              <div class="col">{{coll.dateDeNaissance | date:'dd/MM/yyyy'}}</div>
           </div>
 
           <div class="row mt-1" [hidden]="!modification">
