@@ -1,11 +1,11 @@
 <form class="form-inline ">
   <label for="id_recherche" class="col-4">Recherche par nom</label>
-  <input type="text" class="form-control col-4" id="id_recherche">
-  <button type="button" class="btn btn-link col-4 " (click)="afficherListe()">Rechercher</button>
+  <input type="text" class="form-control col-4" id="id_recherche" #saisie>
+  <button type="button" class="btn btn-link col-4 " (click)="afficherListe(saisie.value)" >Rechercher</button>
 </form>
 
-<div *ngIf="affichageListe" class="row  justify-content-center">
+<div *ngIf="listeMatricules" class="row  justify-content-center">
   <ul class="list-group">
-    <li *ngFor="let matricule of listeMatri" class="list-group-item-dark">Matricule: {{matricule}}</li>
+    <li *ngFor="let matricule of listeMatricules" class="list-group-item-dark">Matricule: {{matricule}}</li>
   </ul>
 </div>

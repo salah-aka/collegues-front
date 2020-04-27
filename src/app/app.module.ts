@@ -9,7 +9,7 @@ import { RechercheCollegueParNomComponent } from './recherche-collegue-par-nom/r
   declarations: [
     AppComponent,
     CollegueComponent,
-    RechercheCollegueParNomComponent
+    RechercheCollegueParNomComponent,
   ],
   imports: [
     BrowserModule

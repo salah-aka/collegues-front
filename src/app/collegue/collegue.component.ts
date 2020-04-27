@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Collegue } from '../models/Collegue';
-
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-collegue',
