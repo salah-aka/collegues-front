@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {listeMatricule} from '../mock/matricules.mock';
 import {collegueMock} from '../mock/collegues.mock';
 import { Collegue } from '../models/Collegue';
-
+import { HttpClient } from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,10 @@ import { Collegue } from '../models/Collegue';
 export class DataService {
 
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  rechercherParNom(nom: string): string[]  {
-    return listeMatricule;
+  rechercherParNom(nom: string): Observable <string[]>  {
+    return this.http.get<string[]>(`${environment.url}/collegues?nom=${nom}`);
      }
     recupererCollegueCourant(): Collegue {
     return collegueMock;
