@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit , OnDestroy} from '@angular/core';
 import { Collegue } from '../models/Collegue';
 import { DataService } from '../services/data.service';
 
@@ -8,9 +8,17 @@ import { DataService } from '../services/data.service';
 })
 export class CollegueComponent implements OnInit {
 
-  @Input() coll: Collegue;
-  modification = false;
-  constructor() { }
+  public modification = false;
+  coll: Collegue;
+
+  constructor(private dataService: DataService) {
+  }
+
+  ngOnInit(): void {
+    this.dataService.recupererCollegueCourant()
+    .subscribe( collegue => { this.coll = collegue;
+     }, error => {console.log(`Erreur : ${error}`)})
+  }
 
   nouveauCollegue(){
     console.log('Création d’un nouveau collègue');
@@ -28,7 +36,5 @@ export class CollegueComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-  }
 
 }

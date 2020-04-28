@@ -6,6 +6,6 @@
 
 <div *ngIf="listeMatricules" class="row  justify-content-center">
   <ul class="list-group">
-    <li *ngFor="let matricule of listeMatricules" class="list-group-item-dark">Matricule: {{matricule}}</li>
+    <li *ngFor="let matricule of listeMatricules" class="btn list-group-item-dark" (click)="afficherCollegue(matricule)">Matricule: {{matricule}}</li>
   </ul>
 </div>

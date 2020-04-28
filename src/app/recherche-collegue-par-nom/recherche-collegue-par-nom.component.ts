@@ -10,7 +10,6 @@ export class RechercheCollegueParNomComponent implements OnInit {
 
   listeMatricules = [];
 
-
   constructor(private dataService: DataService) { }
 
   afficherListe(nomSaisi: string){
@@ -18,7 +17,14 @@ export class RechercheCollegueParNomComponent implements OnInit {
     .subscribe(
       matri => this.listeMatricules = matri,
       (erreur: HttpErrorResponse) => console.log(`Erreur: ${erreur}`)
-    )};
+    )}
+
+  afficherCollegue(matricule: string){
+      this.dataService.selectCollegParMatricule(matricule)
+      .subscribe(
+        collegue =>  console.log(`Collegue: ${collegue}`),
+      (erreur: HttpErrorResponse) => console.log(`Erreur: ${erreur}`))
+    }
 
   ngOnInit(): void {
   }
