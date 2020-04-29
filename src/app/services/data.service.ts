@@ -4,6 +4,7 @@ import { Collegue } from '../models/Collegue';
 import { HttpClient } from '@angular/common/http';
 import {Observable, Subject} from 'rxjs';
 import {environment} from '../../environments/environment';
+import {CollegueSaisie} from '../models/CollegueSaisie';
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +26,12 @@ export class DataService {
     obsCollegue.subscribe(collegue => this.subCollegSelectionne.next(collegue));
     return obsCollegue;
   }
+  creerCollegue(collegueSaisie: CollegueSaisie){
+    return this.http.post<Collegue>(`${environment.url}/collegues`, collegueSaisie).subscribe( collegue => {
+      this.subCollegSelectionne.next(collegue);
+    }), error => {
+      console.log(`Erreur ${error}`);
+    };
+  }
 }
+

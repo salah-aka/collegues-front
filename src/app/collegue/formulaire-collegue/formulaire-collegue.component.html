@@ -1,0 +1,53 @@
+<div>
+  <form #etatFormulaire="ngForm" >
+    <div class = "row">
+      <div class= "col-6">
+        <label for="id_nom">Nom: </label>
+      </div>
+      <div class= "col-6">
+        <input id="id_nom" type="text" name="nom" [(ngModel)]="collegueSaisie.nom" #etatNom="ngModel" required/>
+      </div>
+    </div>
+    <div class = "row">
+      <div class= "col-6">
+        <label for="id_prenoms">Prenoms: </label>
+      </div>
+      <div class= "col-6">
+        <input id="id_prenoms" type="text" name="prenoms" [(ngModel)]="collegueSaisie.prenoms" #etatPrenoms="ngModel" required/>
+      </div>
+    </div>
+
+    <div class = "row">
+      <div class= "col-6">
+       <label for="id_dateNaissance">Date de naissance: </label>
+      </div>
+      <div class= "col-6">
+       <input id="id_dateNaissance" type="date" name="dateNaissance" [(ngModel)]="collegueSaisie.dateDeNaissance" #etatDateNaissance="ngModel" required/>
+     </div>
+    </div>
+
+    <div class = "row">
+      <div class= "col-6">
+        <label for="id_email">Email: </label>
+      </div>
+      <div class= "col-6">
+       <input id="id_email" type="text" name="email" [(ngModel)]="collegueSaisie.email" #etatEmail="ngModel" required />
+     </div>
+    </div>
+
+    <div class = "row">
+      <div class= "col-6">
+       <label for="id_photoUrl">PhotoUrl: </label>
+      </div>
+      <div class= "col-6">
+       <input id="id_photoUrl" type="text" name="photoUrl" [(ngModel)]="collegueSaisie.photoUrl" #etatPhotoUrl="ngModel" required/>
+     </div>
+    </div>
+
+     <button class="btn btn-link" *ngIf="etatFormulaire.valid" (click)="creerCollegue()">Creer</button>
+  </form>
+  <div *ngIf="etatFormulaire.invalid">Veuillez bien remplir la formulaire svp !!</div>
+</div>
+
+
+
